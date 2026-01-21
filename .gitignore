@@ -1,9 +1,20 @@
 ### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
+### Build Systems (Maven e Gradle) ###
+target/
+mvnw
+*.cmd
+.gradle/
+build/
+gradlew
+gradlew.bat
+
+### Eclipse (Bom manter para colaboradores) ###
 .apt_generated
 .classpath
 .factorypath
@@ -12,8 +23,6 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
@@ -25,5 +34,12 @@ bin/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
+### Arquivos de Sistema (Lixo) ###
 .DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+### Logs e Arquivos Temporários ###
+*.log
+*.tmp
