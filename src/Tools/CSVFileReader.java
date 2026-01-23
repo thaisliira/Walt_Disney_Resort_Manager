@@ -1,5 +1,6 @@
 package Tools;
 
+import Models.Booking;
 import Models.Client;
 import Models.GuideExperience;
 
@@ -65,6 +66,34 @@ public class CSVFileReader {
             guidesArray.add(newGuide);
         }
         return guidesArray;
+    }
+
+    public static ArrayList<Booking> readBookingCsvFile(String filePath) throws FileNotFoundException {
+
+        ArrayList<Booking> bookingsArray = new ArrayList<Booking>();
+
+        File bookFile = new File(filePath);
+        Scanner fileScanner = new Scanner(bookFile);
+
+        // Avançar o cabeçalho
+        fileScanner.nextLine();
+
+        while (fileScanner.hasNextLine()) {
+
+            String line = fileScanner.nextLine();
+            String[] separatedLine = line.split(";");
+
+            String newbookID = separatedLine[0];
+            int newroomID = Integer.parseInt(separatedLine[1]);
+            String newclientID = separatedLine[2];
+            String newbookYear = separatedLine[3];
+            String newbookMonth = separatedLine[4];
+            String newbookWeek = separatedLine[5];
+
+            Booking newBook = new Booking (newbookID, newroomID, newclientID, newbookYear, newbookMonth, newbookWeek);
+            bookingsArray.add(newBook);
+        }
+        return bookingsArray;
     }
 
     }
