@@ -2,13 +2,13 @@ package Models;
 
 public class Experience {
 
-    private int experienceID ;
+    private String experienceID ;
     private String experienceName;
     private int guiaID;
     private double adultPrice;
     private double childPrice;
 
-    public Experience(int experienceID, String experienceName, int guiaID, double adultPrice, double childPrice) {
+    public Experience(String experienceID, String experienceName, int guiaID, double adultPrice, double childPrice) {
         this.experienceID = experienceID;
         this.experienceName = experienceName;
         this.guiaID = guiaID;
@@ -16,7 +16,7 @@ public class Experience {
         this.childPrice = childPrice;
     }
 
-    public int getExperienceID() {
+    public String getExperienceID() {
         return experienceID;
     }
 

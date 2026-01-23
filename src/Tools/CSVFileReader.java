@@ -1,6 +1,7 @@
 package Tools;
 
 import Models.Client;
+import Models.GuideExperience;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,4 +39,32 @@ public class CSVFileReader {
 
         return clientsArray;
     }
+
+    public static ArrayList<GuideExperience> readGuidesCsvFile(String filePath) throws FileNotFoundException {
+
+        ArrayList<GuideExperience> guidesArray = new ArrayList<GuideExperience>();
+
+        File guidesFile = new File(filePath);
+        Scanner fileScanner = new Scanner(guidesFile);
+
+        // Avançar o cabeçalho
+        fileScanner.nextLine();
+
+        while (fileScanner.hasNextLine()) {
+
+            String line = fileScanner.nextLine();
+            String[] separatedLine = line.split(";");
+
+            int newguideID = Integer.parseInt(separatedLine[0]) ;
+            String newguideName = separatedLine[1];
+            String newguideNationality = separatedLine[2];
+            String newguideEmail = separatedLine[3];
+            int newguidePhone= Integer.parseInt(separatedLine[4]);
+
+            GuideExperience newGuide = new GuideExperience (newguideID, newguideName, newguideNationality, newguideEmail, newguidePhone);
+            guidesArray.add(newGuide);
+        }
+        return guidesArray;
+    }
+
     }
