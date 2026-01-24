@@ -4,11 +4,11 @@ public class Experience {
 
     private String experienceID ;
     private String experienceName;
-    private int guiaID;
-    private double adultPrice;
-    private double childPrice;
+    private String guiaID;
+    private int adultPrice;
+    private int childPrice;
 
-    public Experience(String experienceID, String experienceName, int guiaID, double adultPrice, double childPrice) {
+    public Experience(String experienceID, String experienceName, String guiaID, int adultPrice, int childPrice) {
         this.experienceID = experienceID;
         this.experienceName = experienceName;
         this.guiaID = guiaID;
@@ -24,15 +24,15 @@ public class Experience {
         return experienceName;
     }
 
-    public int getGuiaID() {
+    public String getGuiaID() {
         return guiaID;
     }
 
-    public double getAdultPrice() {
+    public int getAdultPrice() {
         return adultPrice;
     }
 
-    public double getChildPrice() {
+    public int getChildPrice() {
         return childPrice;
     }
 }

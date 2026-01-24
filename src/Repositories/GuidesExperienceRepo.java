@@ -11,7 +11,7 @@ import java.util.ArrayList;
         private ArrayList<GuideExperience> guidesArrayList;
 
         public GuidesExperienceRepo () throws FileNotFoundException {
-            this.guidesArrayList = CSVFileReader.readGuidesCsvFile("Cesae_Hotel_Resort/Files/guias_experiencias.csv");
+            this.guidesArrayList = CSVFileReader.readGuidesCsvFile("Files/guias_experiencias.csv");
         }
 
         public ArrayList<GuideExperience> getGuidesArrayList() {

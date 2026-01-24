@@ -5,11 +5,11 @@ public class Booking {
     private String bookID;
     private int roomID;
     private String clientID;
-    private String bookYear;
-    private String bookMonth;
-    private String bookWeek;
+    private int bookYear;
+    private int bookMonth;
+    private int bookWeek;
 
-    public Booking(String bookID, int roomID, String clientID, String bookYear, String bookMonth, String bookWeek) {
+    public Booking(String bookID, int roomID, String clientID, int bookYear, int bookMonth, int bookWeek) {
         this.bookID = bookID;
         this.roomID = roomID;
         this.clientID = clientID;
@@ -30,15 +30,15 @@ public class Booking {
         return clientID;
     }
 
-    public String getBookYear() {
+    public int getBookYear() {
         return bookYear;
     }
 
-    public String getBookMonth() {
+    public int getBookMonth() {
         return bookMonth;
     }
 
-    public String getBookWeek() {
+    public int getBookWeek() {
         return bookWeek;
     }
 }

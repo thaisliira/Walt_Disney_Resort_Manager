@@ -2,7 +2,7 @@ package Models;
 
 public class Client {
 
-    private int clientID ;
+    private String clientID ;
     private String clientName;
     private String clientNationality;
     private String clientEmail;
@@ -10,7 +10,7 @@ public class Client {
     private String clientBorn;
     private boolean clientMkt;
 
-    public Client(int clientID, String clientName, String clientNationality, String clientEmail, double clientPhone, String clientBorn, boolean clientMkt) {
+    public Client(String clientID, String clientName, String clientNationality, String clientEmail, double clientPhone, String clientBorn, boolean clientMkt) {
         this.clientID = clientID;
         this.clientName = clientName;
         this.clientNationality = clientNationality;
@@ -20,7 +20,7 @@ public class Client {
         this.clientMkt = clientMkt;
     }
 
-    public int getClientID() {
+    public String getClientID() {
         return clientID;
     }
 

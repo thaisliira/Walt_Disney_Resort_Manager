@@ -1,13 +1,13 @@
 package Models;
 
 public class GuideExperience {
-    private int guideID ;
+    private String guideID ;
     private String guideName;
     private String guideNationality;
     private String guideEmail;
     private int guidePhone;
 
-    public GuideExperience(int guideID, String guideName, String guideNationality, String guideEmail, int guidePhone) {
+    public GuideExperience(String guideID, String guideName, String guideNationality, String guideEmail, int guidePhone) {
         this.guideID = guideID;
         this.guideName = guideName;
         this.guideNationality = guideNationality;
@@ -15,7 +15,7 @@ public class GuideExperience {
         this.guidePhone = guidePhone;
     }
 
-    public int getGuideID() {
+    public String getGuideID() {
         return guideID;
     }
 

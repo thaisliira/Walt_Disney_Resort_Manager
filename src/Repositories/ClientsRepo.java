@@ -9,9 +9,17 @@ import java.util.ArrayList;
 public class ClientsRepo {
 
     private ArrayList<Client> clientArrayList;
+    private static ClientsRepo instance;
 
     public ClientsRepo() throws FileNotFoundException {
-        this.clientArrayList = CSVFileReader.readClientsCsvFile("Cesae_Hotel_Resort/Files/clientes.csv");
+        this.clientArrayList = CSVFileReader.readClientsCsvFile("Files/clientes.csv");
+    }
+
+    public static ClientsRepo getInstance() throws FileNotFoundException {
+        if (instance == null) {
+            instance = new ClientsRepo();
+        }
+        return instance;
     }
 
     public ArrayList<Client> getClientArrayList() {
