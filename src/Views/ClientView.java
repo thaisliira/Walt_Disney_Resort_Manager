@@ -33,20 +33,23 @@ public class ClientView {
 
             switch (opcao) {
                 case 1: // Consultar Quartos Disponíveis
-                this.clientController.quartosDisponiveis();
+                    this.clientController.quartosDisponiveis();
                     break;
 
                 case 2: // Consultar Experiências Disponíveis
+                    this.clientController.optionNotAvailable();
                     break;
 
                 case 3: // Consultar Experiência Favorita
+                    this.clientController.optionNotAvailable();
                     break;
 
                 case 4: // Consultar Experiência Top-Seller
+                    this.clientController.optionNotAvailable();
                     break;
 
                 case 5: // Avaliar uma Experiência
-                    //printTotalSales();
+                    this.clientController.optionNotAvailable();
                     break;
 
                 case 0: // Voltar

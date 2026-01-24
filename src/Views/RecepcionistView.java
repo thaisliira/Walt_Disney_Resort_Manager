@@ -36,16 +36,19 @@ public class RecepcionistView {
                     break;
 
                 case 2: // Consultar Quartos Reservados
+                    this.recepcionistController.optionNotAvailable();
                     break;
 
                 case 3: // Consultar Reservas Atuais
+                    this.recepcionistController.optionNotAvailable();
                     break;
 
                 case 4: // Efetuar uma Reserva
+                    this.recepcionistController.optionNotAvailable();
                     break;
 
                 case 5: // Reservar uma Experiência
-                    //printTotalSales();
+                    this.recepcionistController.optionNotAvailable();
                     break;
 
                 case 0: // Voltar

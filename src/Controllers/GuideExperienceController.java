@@ -4,8 +4,6 @@ import Models.Experience;
 import Models.Sales;
 import Repositories.ExperiencesRepo;
 import Repositories.GuidesExperienceRepo;
-import Repositories.SalesExpRepo;
-
 import java.io.FileNotFoundException;
 
 public class GuideExperienceController {
@@ -32,7 +30,6 @@ public class GuideExperienceController {
                 totalGeneral += total;
                 System.out.println("Adultos: " + numAdults + " | Crianças: " + numChildren);
                 System.out.println("Lucro Total desta Atividade: " + total + "€");
-
             }
         }
         System.out.println("\nTotal de todas as atividades: " + totalGeneral);

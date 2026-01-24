@@ -44,4 +44,19 @@ public class ClientController {
         }
         System.out.println("====================================================\n");
     }
+
+    public void optionNotAvailable() {
+        System.out.println("""
+　　　　　　　　　　      r@
+        ニニニニヽ　　　/ /|｜
+　　　　　 ∥.　    / /  |｜
+        0( ｡дﾟ) ∥ 　/ /   |｜
+        ]( つ¶つ¶　 / / 　 r―､
+        ﾄ┳ヽ厂￣`/ /　　  |   |
+      ｢￣￣￣L/_/　　　　jjjjj　　　
+      （◎￣◎)三)=)三)
+      
+      Lamentamos o inconveniente, estamos em construção!
+    """);
+    }
 }
