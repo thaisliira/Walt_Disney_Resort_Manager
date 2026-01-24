@@ -1,5 +1,9 @@
 package Models;
 
+import Repositories.SalesExpRepo;
+
+import java.io.FileNotFoundException;
+
 public class Sales {
 
     private String saleID;
@@ -34,5 +38,25 @@ public class Sales {
 
     public int getMonth() {
         return month;
+    }
+
+    public static int adultsQuant(String experienceID) throws FileNotFoundException {
+        SalesExpRepo salerepo = SalesExpRepo.getInstance();
+        int adult = 0;
+        for (Sales sale : salerepo.getSalesArrayList()) {
+            if (sale.getExperienceID().equals(experienceID) && sale.getClientType().equals("adulto")) {
+                adult++;
+            }
+        }return adult;
+    }
+
+    public static int childrenQuant(String experienceID) throws FileNotFoundException {
+        SalesExpRepo salerepo = SalesExpRepo.getInstance();
+        int child = 0;
+        for (Sales sale : salerepo.getSalesArrayList()) {
+            if (sale.getExperienceID().equals(experienceID) && sale.getClientType().equals("crianca")) {
+                child++;
+            }
+        }return child;
     }
 }

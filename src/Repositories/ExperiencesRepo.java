@@ -1,6 +1,7 @@
 package Repositories;
 
 import Models.Experience;
+import Models.Tipology;
 import Tools.CSVFileReader;
 
 import java.io.FileNotFoundException;
@@ -21,4 +22,9 @@ public class ExperiencesRepo {
         }
         return instance;
     }
+
+    public ArrayList<Experience> getExperienceArrayList() {
+        return experienceArrayList;
+    }
+
 }

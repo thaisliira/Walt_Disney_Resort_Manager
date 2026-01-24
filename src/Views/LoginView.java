@@ -72,6 +72,11 @@ public class LoginView {
                 rp.menu();
                 break;
 
+            case "GUIA":
+                GuideExperienceView gv = new GuideExperienceView();
+                gv.menu(username);
+                break;
+
             default:
                 System.out.println("❌ Credenciais Inválidas ❌");
                 break;

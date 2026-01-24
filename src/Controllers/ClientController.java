@@ -27,16 +27,19 @@ public class ClientController {
         System.out.println("\n====================================================");
         System.out.println("          CATÁLOGO DE QUARTOS DO CESAE RESORT             ");
         System.out.println("====================================================");
-        System.out.printf("%-12s | %-20s | %-12s\n", "Nº Quarto", "Tipologia", "Preço/Semana");
+        System.out.println("Nº Quarto | Tipologia | Preço/Semana");
         System.out.println("----------------------------------------------------");
 
+        TipologyRepo tipRepo = TipologyRepo.getInstance();
+
         for (Room roomatual : roomsRepo.getRoomsArrayList()) {
-            Tipology tip = TipologyRepo.getInstance().getTipologyById(roomatual.getTypologyID());
+            Tipology tip = tipRepo.getTipologyById(roomatual.getTypologyID());
             if (tip != null) {
-                System.out.printf("%-12d | %-20s | %-12d€\n",
-                        roomatual.getNumQuarto(),
-                        tip.getDescription(),
-                        tip.getTypologyPrice());
+                System.out.println(
+                        roomatual.getNumQuarto() + " | " +
+                                tip.getDescription() + " | " +
+                                tip.getTypologyPrice() + "€"
+                );
             }
         }
         System.out.println("====================================================\n");

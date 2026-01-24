@@ -195,4 +195,31 @@ public class CSVFileReader {
         return tipologyArrayList;
     }
 
+    public static ArrayList<Sales> readSalesCsvFile(String filePath) throws FileNotFoundException {
+
+        ArrayList<Sales> salesArrayList = new ArrayList<Sales>();
+
+        File salesFile = new File(filePath);
+        Scanner fileScanner = new Scanner(salesFile);
+
+        // Avançar o cabeçalho
+        fileScanner.nextLine();
+
+        while (fileScanner.hasNextLine()) {
+
+            String line = fileScanner.nextLine();
+            String[] separatedLine = line.split(",");
+
+            String newsaleID = separatedLine[0];
+            String newexperienceID = separatedLine[1];
+            String newclientType = separatedLine[2];
+            int newyear = Integer.parseInt(separatedLine[3]);
+            int newmonth = Integer.parseInt(separatedLine[4]);
+
+            Sales newSale = new Sales (newsaleID, newexperienceID, newclientType, newyear, newmonth);
+            salesArrayList.add(newSale);
+        }
+        return salesArrayList;
+    }
+
     }

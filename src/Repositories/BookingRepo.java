@@ -1,7 +1,6 @@
 package Repositories;
 
 import Models.Booking;
-import Models.Tipology;
 import Tools.CSVFileReader;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -32,7 +32,7 @@ public class RecepcionistController {
         System.out.println("\n====================================================");
         System.out.println("      CATÁLOGO DE QUARTOS DISPONÍVEIS POR SEMANA       ");
         System.out.println("====================================================");
-        System.out.printf("%-12s | %-20s | %-12s\n", "Nº Quarto", "Tipologia", "Preço/Semana");
+        System.out.println("Nº Quarto | Tipologia | Preço/Semana");
         System.out.println("----------------------------------------------------");
 
         TipologyRepo tipRepo = TipologyRepo.getInstance();
@@ -42,10 +42,11 @@ public class RecepcionistController {
             if (bookRepo.freeRoomWeek(room.getNumQuarto(), presentYear, presentMonth, presentWeek)) {
                 Tipology tip = tipRepo.getTipologyById(room.getTypologyID());
                 if (tip != null) {
-                    System.out.printf("%-12d | %-20s | %-12d€\n",
-                            room.getNumQuarto(),
-                            tip.getDescription(),
-                            tip.getTypologyPrice());
+                    System.out.println(
+                            room.getNumQuarto() + " | " +
+                                    tip.getDescription() + " | " +
+                                    tip.getTypologyPrice() + "€"
+                    );
                 }
             }
         }

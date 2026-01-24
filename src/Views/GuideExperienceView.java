@@ -2,23 +2,24 @@ package Views;
 
 import Controllers.GuideExperienceController;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class GuideExperienceView {
 
     private GuideExperienceController guideExperienceController;
 
-    public GuideExperienceView(GuideExperienceController guideExperienceController) {
-        this.guideExperienceController = guideExperienceController;
+    public GuideExperienceView() throws FileNotFoundException {
+        this.guideExperienceController = new GuideExperienceController();
     }
 
-    public void menu() {
+    public void menu(String userGuide) throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
         int opcao;
         do {
 
-            System.out.println("\n\n***** Bem-vind@ Exmo. Patrão *****");
+            System.out.println("\n\n***** Bem-vind@ " + userGuide + "*****");
             System.out.println("1. Consultar Histórico de Experiência");
             System.out.println("0. Voltar");
 
@@ -26,7 +27,8 @@ public class GuideExperienceView {
             opcao = input.nextInt();
 
             switch (opcao) {
-                case 1: // Produto Mais Vendido - Unidades
+                case 1: // Consultar Histórico de Experiência
+                    this.guideExperienceController.experienceHistory(userGuide);
                     break;
 
                 case 0: // Voltar
