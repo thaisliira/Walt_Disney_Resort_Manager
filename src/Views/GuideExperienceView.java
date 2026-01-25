@@ -1,7 +1,6 @@
 package Views;
 
 import Controllers.GuideExperienceController;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -37,13 +36,13 @@ public class GuideExperienceView {
 
         do {
 
-            System.out.println("\n\n***** Bem-vind@ " + userGuide + "*****");
+            System.out.println("\n\n***** Bem-vind@ " + userGuide + " *****");
             System.out.println("1. Consultar Histórico de Experiência");
             System.out.println("0. Voltar");
             System.out.print("Opção: ");
 
             if (!input.hasNextInt()) {
-                System.out.println("Erro: Por favor, insira apenas números.");
+                System.out.println("Erro! Por favor, insira apenas números.");
                 input.nextLine();
                 continue;
             }

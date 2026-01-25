@@ -39,7 +39,7 @@ public class GuideExperienceController {
      */
     public void experienceHistory(String userGuide) throws FileNotFoundException {
         int totalGeneral = 0;
-        System.out.println("--- Histórico de Vendas do Guia: " + userGuide + " ---");
+        System.out.println("\n--- Histórico de Vendas do Guia: " + userGuide + " ---");
         for (Experience exp : experiencesRepo.getExperienceArrayList()) {
             if (exp.getGuiaID().equals(userGuide)) {
                 System.out.println("\nExperiência: " + exp.getExperienceName());
@@ -53,6 +53,6 @@ public class GuideExperienceController {
                 System.out.println("Lucro Total desta Atividade: " + total + "€");
             }
         }
-        System.out.println("\nTotal de todas as atividades: " + totalGeneral);
+        System.out.println("\nTotal de todas as atividades: " + totalGeneral + "€");
     }
 }
