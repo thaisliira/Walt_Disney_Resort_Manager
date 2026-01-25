@@ -5,41 +5,63 @@ import Controllers.GuideExperienceController;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * View responsável por apresentar o menu do perfil de Guia de Experiências e encaminhar
+ * as opções selecionadas para o respetivo GuideExperienceController.
+ */
 public class GuideExperienceView {
 
+    /** Controller responsável pelas operações disponíveis ao perfil de guia. */
     private GuideExperienceController guideExperienceController;
 
+    /**
+     * Constrói uma instância de GuideExperienceView e inicializa o GuideExperienceController.
+     *
+     * @throws FileNotFoundException se algum ficheiro necessário para inicialização do controller não for encontrado.
+     */
     public GuideExperienceView() throws FileNotFoundException {
         this.guideExperienceController = new GuideExperienceController();
     }
 
+    /**
+     * Apresenta o menu do Guia de Experiências e executa a operação correspondente à opção escolhida.
+     * O menu é repetido até o utilizador selecionar a opção 0.
+     *
+     * @param userGuide identificador (username/ID) do guia autenticado, usado para filtrar e apresentar informação.
+     * @throws FileNotFoundException se alguma operação invocada depender de ficheiros inexistentes.
+     */
     public void menu(String userGuide) throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
-        int opcao;
+        int opcao = -1;
+
         do {
 
             System.out.println("\n\n***** Bem-vind@ " + userGuide + "*****");
             System.out.println("1. Consultar Histórico de Experiência");
             System.out.println("0. Voltar");
-
             System.out.print("Opção: ");
-            opcao = input.nextInt();
 
+            if (!input.hasNextInt()) {
+                System.out.println("Erro: Por favor, insira apenas números.");
+                input.nextLine();
+                continue;
+            }
+
+            opcao = input.nextInt();
             switch (opcao) {
-                case 1: // Consultar Histórico de Experiência
+                case 1:
                     this.guideExperienceController.experienceHistory(userGuide);
                     break;
 
-                case 0: // Voltar
+                case 0:
                     System.out.println("Até à proxima ⍈");
                     break;
 
                 default:
-                    System.out.println("❌ Opção Inválida: " + opcao + " ❌");
+                    System.out.println("Opção inválida: " + opcao);
                     break;
             }
-
         } while (opcao != 0);
     }
 }

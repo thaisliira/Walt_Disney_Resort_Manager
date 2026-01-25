@@ -7,7 +7,20 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe utilitária responsável por ler ficheiros CSV e converter cada linha em objetos do modelo.
+ * Disponibiliza métodos estáticos para carregar listas de entidades (clientes, guias, reservas,
+ * experiências, logins, quartos, tipologias e vendas) a partir de ficheiros CSV.
+ */
 public class CSVFileReader {
+
+    /**
+     * Lê um ficheiro CSV de clientes e devolve uma lista de objetos Client.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de clientes carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Client> readClientsCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Client> clientsArray = new ArrayList<Client>();
@@ -15,7 +28,6 @@ public class CSVFileReader {
         File clientsFile = new File(filePath);
         Scanner fileScanner = new Scanner(clientsFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -31,7 +43,7 @@ public class CSVFileReader {
             String newClientBorn = separatedLine[5];
             boolean newClientMkt = Boolean.parseBoolean(separatedLine[6]);
 
-            Client newClient = new Client (newClientID, newClientName, newClientNationality, newClientEmail, newClientPhone, newClientBorn, newClientMkt);
+            Client newClient = new Client(newClientID, newClientName, newClientNationality, newClientEmail, newClientPhone, newClientBorn, newClientMkt);
             clientsArray.add(newClient);
 
         }
@@ -39,6 +51,13 @@ public class CSVFileReader {
         return clientsArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de guias de experiências e devolve uma lista de objetos GuideExperience.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de guias carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<GuideExperience> readGuidesCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<GuideExperience> guidesArray = new ArrayList<GuideExperience>();
@@ -46,7 +65,6 @@ public class CSVFileReader {
         File guidesFile = new File(filePath);
         Scanner fileScanner = new Scanner(guidesFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -54,18 +72,25 @@ public class CSVFileReader {
             String line = fileScanner.nextLine();
             String[] separatedLine = line.split(",");
 
-            String newguideID = separatedLine[0] ;
+            String newguideID = separatedLine[0];
             String newguideName = separatedLine[1];
             String newguideNationality = separatedLine[2];
             String newguideEmail = separatedLine[3];
-            int newguidePhone= Integer.parseInt(separatedLine[4]);
+            int newguidePhone = Integer.parseInt(separatedLine[4]);
 
-            GuideExperience newGuide = new GuideExperience (newguideID, newguideName, newguideNationality, newguideEmail, newguidePhone);
+            GuideExperience newGuide = new GuideExperience(newguideID, newguideName, newguideNationality, newguideEmail, newguidePhone);
             guidesArray.add(newGuide);
         }
         return guidesArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de reservas de quartos e devolve uma lista de objetos Booking.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de reservas carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Booking> readBookingCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Booking> bookingsArray = new ArrayList<Booking>();
@@ -73,7 +98,6 @@ public class CSVFileReader {
         File bookFile = new File(filePath);
         Scanner fileScanner = new Scanner(bookFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -88,12 +112,19 @@ public class CSVFileReader {
             int newbookMonth = Integer.parseInt(separatedLine[4]);
             int newbookWeek = Integer.parseInt(separatedLine[5]);
 
-            Booking newBook = new Booking (newbookID, newroomID, newclientID, newbookYear, newbookMonth, newbookWeek);
+            Booking newBook = new Booking(newbookID, newroomID, newclientID, newbookYear, newbookMonth, newbookWeek);
             bookingsArray.add(newBook);
         }
         return bookingsArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de experiências e devolve uma lista de objetos Experience.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de experiências carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Experience> readExperiencesCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Experience> experiencesArray = new ArrayList<Experience>();
@@ -101,7 +132,6 @@ public class CSVFileReader {
         File experienceFile = new File(filePath);
         Scanner fileScanner = new Scanner(experienceFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -115,12 +145,19 @@ public class CSVFileReader {
             int newadultPrice = Integer.parseInt(separatedLine[3]);
             int newchildPrice = Integer.parseInt(separatedLine[4]);
 
-            Experience newExperience = new Experience (newexperienceID, newexperienceName, newguiaID, newadultPrice, newchildPrice);
+            Experience newExperience = new Experience(newexperienceID, newexperienceName, newguiaID, newadultPrice, newchildPrice);
             experiencesArray.add(newExperience);
         }
         return experiencesArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de logins e devolve uma lista de objetos Login.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de logins carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Login> readLoginsCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Login> loginsArray = new ArrayList<Login>();
@@ -128,7 +165,6 @@ public class CSVFileReader {
         File loginFile = new File(filePath);
         Scanner fileScanner = new Scanner(loginFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -140,12 +176,19 @@ public class CSVFileReader {
             String newuserPassword = separatedLine[1];
             String newuserType = separatedLine[2];
 
-            Login newLogin = new Login (newuserName, newuserPassword, newuserType);
+            Login newLogin = new Login(newuserName, newuserPassword, newuserType);
             loginsArray.add(newLogin);
         }
         return loginsArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de quartos e devolve uma lista de objetos Room.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de quartos carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Room> readRoomsCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Room> roomsArray = new ArrayList<Room>();
@@ -153,7 +196,6 @@ public class CSVFileReader {
         File roomFile = new File(filePath);
         Scanner fileScanner = new Scanner(roomFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -162,14 +204,21 @@ public class CSVFileReader {
             String[] separatedLine = line.split(",");
 
             int newNumQuarto = Integer.parseInt(separatedLine[0]);
-            int newTipologyID= Integer.parseInt(separatedLine[1]);
+            int newTipologyID = Integer.parseInt(separatedLine[1]);
 
-            Room newRoom = new Room (newNumQuarto, newTipologyID);
+            Room newRoom = new Room(newNumQuarto, newTipologyID);
             roomsArray.add(newRoom);
         }
         return roomsArray;
     }
 
+    /**
+     * Lê um ficheiro CSV de tipologias e devolve uma lista de objetos Tipology.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de tipologias carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Tipology> readTipologiesCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Tipology> tipologyArrayList = new ArrayList<Tipology>();
@@ -177,7 +226,6 @@ public class CSVFileReader {
         File tipologyFile = new File(filePath);
         Scanner fileScanner = new Scanner(tipologyFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -189,12 +237,19 @@ public class CSVFileReader {
             String newdescription = separatedLine[1];
             int newtypologyPrice = Integer.parseInt(separatedLine[2]);
 
-            Tipology newTipology = new Tipology (newtypologyID, newdescription, newtypologyPrice);
+            Tipology newTipology = new Tipology(newtypologyID, newdescription, newtypologyPrice);
             tipologyArrayList.add(newTipology);
         }
         return tipologyArrayList;
     }
 
+    /**
+     * Lê um ficheiro CSV de vendas de experiências e devolve uma lista de objetos Sales.
+     *
+     * @param filePath caminho do ficheiro CSV a ler.
+     * @return lista de vendas carregada a partir do ficheiro.
+     * @throws FileNotFoundException se o ficheiro não for encontrado.
+     */
     public static ArrayList<Sales> readSalesCsvFile(String filePath) throws FileNotFoundException {
 
         ArrayList<Sales> salesArrayList = new ArrayList<Sales>();
@@ -202,7 +257,6 @@ public class CSVFileReader {
         File salesFile = new File(filePath);
         Scanner fileScanner = new Scanner(salesFile);
 
-        // Avançar o cabeçalho
         fileScanner.nextLine();
 
         while (fileScanner.hasNextLine()) {
@@ -216,10 +270,9 @@ public class CSVFileReader {
             int newyear = Integer.parseInt(separatedLine[3]);
             int newmonth = Integer.parseInt(separatedLine[4]);
 
-            Sales newSale = new Sales (newsaleID, newexperienceID, newclientType, newyear, newmonth);
+            Sales newSale = new Sales(newsaleID, newexperienceID, newclientType, newyear, newmonth);
             salesArrayList.add(newSale);
         }
         return salesArrayList;
     }
-
-    }
+}
