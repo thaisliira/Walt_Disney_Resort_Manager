@@ -36,50 +36,59 @@ public class ClientView {
 
         do {
 
-            System.out.println("\n\n***** Bem-vind@ Exmo. Cliente *****");
-            System.out.println("1. Consultar Quartos Disponíveis");
-            System.out.println("2. Consultar Experiências Disponíveis");
-            System.out.println("3. Consultar Experiência Favorita");
-            System.out.println("4. Consultar Experiência Top-Seller");
-            System.out.println("5. Avaliar uma Experiência");
-            System.out.println("0. Voltar");
+            System.out.println("\n\n==============================================");
+            System.out.println("          WALT DISNEY RESORT - VISITANTE       ");
+            System.out.println("==============================================");
+            System.out.println("🛏️ 1. Consultar Quartos Disponiveis");
+            System.out.println("🎭 2. Consultar Experiencias Disponiveis");
+            System.out.println("💖 3. Consultar Experiencia Favorita");
+            System.out.println("🔥 4. Consultar Experiencia Top-Seller");
+            System.out.println("⭐ 5. Avaliar uma Experiencia");
+            System.out.println("🚪 0. Voltar");
+            System.out.println("----------------------------------------------");
 
-            System.out.print("Opção: ");
+            System.out.print("Opcao: ");
 
             if (!input.hasNextInt()) {
-                System.out.println("Erro: Por favor, insira apenas números.");
+                System.out.println("Erro: Por favor, insira apenas numeros.");
                 input.nextLine();
                 continue;
             }
+
             opcao = input.nextInt();
 
             switch (opcao) {
                 case 1:
+                    System.out.println("🗺️ A abrir catalogo de quartos...");
                     this.clientController.quartosDisponiveis();
                     break;
 
                 case 2:
+                    System.out.println("🎭 A abrir experiencias...");
                     this.clientController.optionNotAvailable();
                     break;
 
                 case 3:
+                    System.out.println("💖 A procurar experiencia favorita...");
                     this.clientController.optionNotAvailable();
                     break;
 
                 case 4:
+                    System.out.println("🔥 A consultar top-seller...");
                     this.clientController.optionNotAvailable();
                     break;
 
                 case 5:
+                    System.out.println("⭐ Area de avaliacao...");
                     this.clientController.optionNotAvailable();
                     break;
 
                 case 0:
-                    System.out.println("Até à proxima ⍈");
+                    System.out.println("👋✨ Ate a proxima! A magia continua!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida: " + opcao);
+                    System.out.println("⚠️ Opcao invalida: " + opcao);
                     break;
             }
 
