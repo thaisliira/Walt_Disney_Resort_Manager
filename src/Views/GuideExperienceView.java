@@ -36,13 +36,16 @@ public class GuideExperienceView {
 
         do {
 
-            System.out.println("\n\n***** Bem-vind@ " + userGuide + " *****");
-            System.out.println("1. Consultar Histórico de Experiência");
-            System.out.println("0. Voltar");
-            System.out.print("Opção: ");
+            System.out.println("\n\n==============================================");
+            System.out.println("          WALT DISNEY RESORT - Guia       ");
+            System.out.println("==============================================");
+            System.out.println("🎭✨ ***** BEM-VIND@, " + userGuide + " ***** ✨🎭");
+            System.out.println("📜 1. Consultar Histórico de Experiências");
+            System.out.println("🚪 0. Voltar");
+            System.out.print("👉 Opção: ");
 
             if (!input.hasNextInt()) {
-                System.out.println("Erro! Por favor, insira apenas números.");
+                System.out.println("❌ Erro! Por favor, insira apenas números.");
                 input.nextLine();
                 continue;
             }
@@ -50,15 +53,16 @@ public class GuideExperienceView {
             opcao = input.nextInt();
             switch (opcao) {
                 case 1:
+                    System.out.println("🗺️ A abrir o teu histórico de experiências...");
                     this.guideExperienceController.experienceHistory(userGuide);
                     break;
 
                 case 0:
-                    System.out.println("Até à proxima ⍈");
+                    System.out.println("👋✨ Até à próxima! Boa magia por aí!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida: " + opcao);
+                    System.out.println("⚠️ Opção inválida: " + opcao);
                     break;
             }
         } while (opcao != 0);

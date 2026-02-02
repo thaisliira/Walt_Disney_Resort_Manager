@@ -37,15 +37,29 @@ public class LoginView {
         int opcao = -1;
 
         do {
-            System.out.println("\n\n***** BEM-VINDO AO CESAE RESORT *****");
-            System.out.println("1. Cliente");
-            System.out.println("2. Staff");
-            System.out.println("0. Sair");
+            System.out.println("\n\n ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣴⠄⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠀⠀⣠⣴⡾⠛⠋⠉⠀⠀⠀⠀⢸⣿⣷⠀⠛⢷⣦⣄⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⣠⡾⠋⠁⠀⠀⠀⠀⠀⢸⣧⣤⣼⣿⣿⠀⠀⠀⠈⠙⢷⣄⠀⠀⠀⠀\n" +
+                    "⠀⠀⢠⣾⠋⠀⠀⠀⢀⣷⠀⣸⡀⣼⣿⣿⣿⣿⣿⡀⣾⡀⠀⡄⠀⠙⣷⡄⠀⠀\n" +
+                    "⠀⢰⡿⠁⠀⢀⠀⠀⢸⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠸⠇⠀⠀⠈⢿⡆⠀\n" +
+                    "⢠⣿⠁⠀⠀⣿⡀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⡄⠀⠀⠈⣿⡄\n" +
+                    "⣸⡇⠀⠀⠰⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⠆⠀⠀⢸⣇\n" +
+                    "⣿⡇⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⢸⣿\n" +
+                    "⠛⠃⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠘⠛" +
+                    "\n✨🏰 ***** BEM-VINDO AO WALT DISNEY RESORT ***** 🏰✨");
 
-            System.out.print("Opção: ");
+            System.out.println("👑 1. Visitante (Cliente)");
+            System.out.println("🧙‍♂️ 2. Staff (Cast Member)");
+            System.out.println("🚪 0. Sair do Castelo");
+
+
+            System.out.print("🎟️ Opção: ");
+
 
             if (!input.hasNextInt()) {
-                System.out.println("Entrada inválida. Tente um número.");
+                System.out.println("❌ Entrada inválida. Digita um número (ex: 1, 2 ou 0).");
                 input.nextLine();
                 continue;
             }
@@ -54,19 +68,24 @@ public class LoginView {
 
             switch (opcao) {
                 case 1:
+                    System.out.println("🎉 A entrar na área do Visitante...");
                     new ClientView().menu();
                     break;
 
+
                 case 2:
+                    System.out.println("🔐 Acesso restrito: área do Staff...");
                     menuLogin();
                     break;
 
+
                 case 0:
-                    System.out.println("A encerrar.");
+                    System.out.println("👋✨ A encerrar... Até à próxima magia!");
                     break;
 
+
                 default:
-                    System.out.println("Opção inválida: " + opcao);
+                    System.out.println("⚠️ Opção inválida: " + opcao + " — tenta novamente!");
                     break;
             }
         } while (opcao != 0);
@@ -85,32 +104,38 @@ public class LoginView {
         String username;
         String password;
 
-        System.out.println("\n\n***** INTERNO *****");
-        System.out.print("Username: ");
+        System.out.println("\n\n🔐✨ ***** ÁREA RESTRITA (CAST MEMBERS) ***** ✨🔐");
+        System.out.println("🏰 Acesso apenas para staff autorizado.");
+
+        System.out.print("👤 Username: ");
         username = input.next();
-        System.out.print("Password: ");
+
+        System.out.print("🗝️ Password: ");
         password = input.next();
 
         String accessType = this.loginController.validateLogin(username, password);
 
         switch (accessType) {
             case "ADMIN":
+                System.out.println("👑 Acesso concedido: ADMIN. Bem-vind@ ao painel real!");
                 AdminView av = new AdminView();
                 av.menu();
                 break;
 
             case "GESTAO":
+                System.out.println("🧾 Acesso concedido: GESTÃO. Bem-vind@ à receção do reino!");
                 RecepcionistView rp = new RecepcionistView();
                 rp.menu();
                 break;
 
             case "GUIA":
+                System.out.println("🎭 Acesso concedido: GUIA. Vamos para as experiências mágicas!");
                 GuideExperienceView gv = new GuideExperienceView();
                 gv.menu(username);
                 break;
 
             default:
-                System.out.println("Credenciais inválidas.");
+                System.out.println("❌🧙‍♂️ Credenciais inválidas. A magia não reconheceu o acesso!");
                 break;
         }
     }

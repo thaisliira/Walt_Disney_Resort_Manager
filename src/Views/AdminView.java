@@ -35,24 +35,25 @@ public class AdminView {
         int opcao = -1;
 
         do {
+            System.out.println("\n\n==============================================");
+            System.out.println("          WALT DISNEY RESORT - Admin       ");
+            System.out.println("==============================================");
+            System.out.println("📊 1. Consultar Total de Reservas");
+            System.out.println("💰 2. Consultar Total de Receitas");
+            System.out.println("🗓️ 3. Consultar Reservas/Receitas Mensais");
+            System.out.println("🛏️ 4. Tipologia de Quarto Mais Reservada");
+            System.out.println("🎭 5. Experiência Mais Procurada (Adultos)");
+            System.out.println("🧸 6. Experiência Mais Procurada (Crianças)");
+            System.out.println("🏆 7. Experiência Mais Lucrativa");
+            System.out.println("🪙 8. Experiência Menos Lucrativa");
+            System.out.println("💎 9. Quarto com Melhor Preço/Semana");
+            System.out.println("➕ 10. Adicionar Novo Login");
+            System.out.println("🚪 0. Voltar");
 
-            System.out.println("\n\n***** Bem-vind@ Admin *****");
-            System.out.println("1. Consultar Total de Reservas");
-            System.out.println("2. Consultar total de receitas");
-            System.out.println("3. Consultar Reservas/Receitas Mensais");
-            System.out.println("4. Consultar Tipologia de Quartos mais Reservada");
-            System.out.println("5. Consultar Experiência mais Procurada - Adultos");
-            System.out.println("6. Consultar Experiência mais Procurada - Crianças");
-            System.out.println("7. Consultar Experiência mais Lucrativa");
-            System.out.println("8. Consultar Experiência menos Lucrativa");
-            System.out.println("9. Consultar Quarto com melhor Preço/Semana");
-            System.out.println("10. Adicionar Novo Login");
-            System.out.println("0. Voltar");
-
-            System.out.print("Opção: ");
+            System.out.print("👉 Opção: ");
 
             if (!input.hasNextInt()) {
-                System.out.println("Erro: Por favor, insira apenas números.");
+                System.out.println("❌ Erro: Por favor, insira apenas números!");
                 input.nextLine();
                 continue;
             }
@@ -77,10 +78,12 @@ public class AdminView {
                     break;
 
                 case 5:
+                    System.out.println("🎭 A calcular a experiência mais procurada por adultos...");
                     this.adminController.expMostPopAdult();
                     break;
 
                 case 6:
+                    System.out.println("🧸 A calcular a experiência mais procurada por crianças...");
                     this.adminController.expMostPopChild();
                     break;
 
@@ -101,11 +104,11 @@ public class AdminView {
                     break;
 
                 case 0:
-                    System.out.println("Até à proxima ⍈");
+                    System.out.println("👋✨ Até à próxima, Majestade!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida: " + opcao);
+                    System.out.println("⚠️ Opção inválida: " + opcao);
                     break;
             }
 
