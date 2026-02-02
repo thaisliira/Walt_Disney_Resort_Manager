@@ -1,4 +1,4 @@
-package Pokemon_Ascensao.Assets;
+package Assets;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -6,7 +6,7 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 
 /**
- * Classe que permite a execução de áudios no jogo
+ * Classe que permite a execução de áudios
  */
 public class Audio {
 

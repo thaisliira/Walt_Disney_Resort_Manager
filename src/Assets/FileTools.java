@@ -1,16 +1,16 @@
-package Pokemon_Ascensao.Assets;
+package Assets;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Classe para impressão da arte do pokémon inicial e após evoluções
+ * Classe para impressão da arte
  */
 public class FileTools {
 
     /**
-     * Função para imprimir a arte do pokemon
+     * Função para imprimir a arte
      * @param path local da arte
      * @throws FileNotFoundException se não encontrar o arquivo
      */
