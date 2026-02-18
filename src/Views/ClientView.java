@@ -59,27 +59,22 @@ public class ClientView {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("🗺️ A abrir catalogo de quartos...");
                     this.clientController.quartosDisponiveis();
                     break;
 
                 case 2:
-                    System.out.println("🎭 A abrir experiencias...");
-                    this.clientController.optionNotAvailable();
+                    this.clientController.showAvailableExperiences();
                     break;
 
                 case 3:
-                    System.out.println("💖 A procurar experiencia favorita...");
                     this.clientController.optionNotAvailable();
                     break;
 
                 case 4:
-                    System.out.println("🔥 A consultar top-seller...");
-                    this.clientController.optionNotAvailable();
+                    this.clientController.topSeller();
                     break;
 
                 case 5:
-                    System.out.println("⭐ Area de avaliacao...");
                     this.clientController.optionNotAvailable();
                     break;
 

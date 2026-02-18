@@ -1,3 +1,4 @@
+import Assets.Audio;
 import Views.LoginView;
 import java.io.FileNotFoundException;
 
@@ -15,6 +16,7 @@ public class Main {
      * @throws FileNotFoundException se algum ficheiro necessário para inicialização não for encontrado.
      */
     public static void main(String[] args) throws FileNotFoundException {
+        Audio.playMusic("AudioFiles/aberturadisney.wav");
         LoginView lv = new LoginView();
         lv.menu();
     }

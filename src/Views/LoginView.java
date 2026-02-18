@@ -1,5 +1,6 @@
 package Views;
 
+import Assets.ConsoleColors;
 import Controllers.LoginController;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class LoginView {
         int opcao = -1;
 
         do {
-            System.out.println("\n\n ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+            System.out.println(ConsoleColors.PURPLE_BOLD + "\n\n ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣴⠄⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠀⠀⣠⣴⡾⠛⠋⠉⠀⠀⠀⠀⢸⣿⣷⠀⠛⢷⣦⣄⠀⠀⠀⠀⠀⠀\n" +
@@ -47,15 +48,15 @@ public class LoginView {
                     "⢠⣿⠁⠀⠀⣿⡀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⡄⠀⠀⠈⣿⡄\n" +
                     "⣸⡇⠀⠀⠰⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⠆⠀⠀⢸⣇\n" +
                     "⣿⡇⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⢸⣿\n" +
-                    "⠛⠃⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠘⠛" +
+                    "⠛⠃⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠘⠛" + ConsoleColors.RESET +
                     "\n✨🏰 ***** BEM-VINDO AO WALT DISNEY RESORT ***** 🏰✨");
 
             System.out.println("👑 1. Visitante (Cliente)");
             System.out.println("🧙‍♂️ 2. Staff (Cast Member)");
-            System.out.println("🚪 0. Sair do Castelo");
+            System.out.println("🚪 0. Sair");
 
 
-            System.out.print("🎟️ Opção: ");
+            System.out.print("Opção: ");
 
 
             if (!input.hasNextInt()) {
@@ -68,19 +69,18 @@ public class LoginView {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("🎉 A entrar na área do Visitante...");
                     new ClientView().menu();
                     break;
 
 
                 case 2:
-                    System.out.println("🔐 Acesso restrito: área do Staff...");
+                    System.out.println("🔐 Acesso restrito: área de Staff...");
                     menuLogin();
                     break;
 
 
                 case 0:
-                    System.out.println("👋✨ A encerrar... Até à próxima magia!");
+                    System.out.println("👋✨ Até à próxima!");
                     break;
 
 
@@ -124,8 +124,8 @@ public class LoginView {
 
             case "GESTAO":
                 System.out.println("🧾 Acesso concedido: GESTÃO. Bem-vind@ à receção do reino!");
-                RecepcionistView rp = new RecepcionistView();
-                rp.menu();
+                RecepcionistView rv = new RecepcionistView();
+                rv.menu();
                 break;
 
             case "GUIA":
@@ -135,7 +135,7 @@ public class LoginView {
                 break;
 
             default:
-                System.out.println("❌🧙‍♂️ Credenciais inválidas. A magia não reconheceu o acesso!");
+                System.out.println("❌🧙‍♂️ Credenciais inválidas. Tente novamente!");
                 break;
         }
     }

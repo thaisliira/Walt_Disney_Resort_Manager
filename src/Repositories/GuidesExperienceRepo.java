@@ -48,4 +48,19 @@ public class GuidesExperienceRepo {
     public ArrayList<GuideExperience> getGuidesArrayList() {
         return guidesArrayList;
     }
+
+    /**
+     * Procura e devolve um guia pelo seu identificador.
+     *
+     * @param guideId identificador do guia.
+     * @return guia correspondente ao ID fornecido, ou null se não existir.
+     */
+    public GuideExperience getGuideById(String guideId) {
+        for (GuideExperience guide : guidesArrayList) {
+            if (guide.getGuideID().equals(guideId)) {
+                return guide;
+            }
+        }
+        return null;
+    }
 }

@@ -53,12 +53,12 @@ public class GuideExperienceView {
             opcao = input.nextInt();
             switch (opcao) {
                 case 1:
-                    System.out.println("🗺️ A abrir o teu histórico de experiências...");
+                    System.out.println("🗺️ Abrindo o teu histórico de experiências...");
                     this.guideExperienceController.experienceHistory(userGuide);
                     break;
 
                 case 0:
-                    System.out.println("👋✨ Até à próxima! Boa magia por aí!");
+                    System.out.println("👋✨ Até à próxima!");
                     break;
 
                 default:
